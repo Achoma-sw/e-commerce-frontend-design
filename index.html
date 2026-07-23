@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PoultryHub · premium poultry marketplace</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- TOAST -->
+    <div id="toast" class="toast">✨ Added to cart</div>
+
+    <!-- STICKY NAV -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Poultry<span>Hub</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+            <div class="flex-center">
+                <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>Fresh from the farm <br />to your table.</h1>
+            <p>Premium poultry, eggs, and farm-fresh produce — sustainably raised and delivered.</p>
+            <a href="#" class="btn btn-accent">Explore shop <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <div class="container">
+        <h2 class="section-title">Shop by category</h2>
+        <div class="category-grid">
+            <div class="category-card"><i class="fas fa-drumstick-bite"></i><h4>Chicken</h4></div>
+            <div class="category-card"><i class="fas fa-egg"></i><h4>Eggs</h4></div>
+            <div class="category-card"><i class="fas fa-turkey"></i><h4>Turkey</h4></div>
+            <div class="category-card"><i class="fas fa-seedling"></i><h4>Feed</h4></div>
+            <div class="category-card"><i class="fas fa-tractor"></i><h4>Supplies</h4></div>
+        </div>
+    </div>
+
+    <!-- FEATURED PRODUCTS -->
+    <div class="container">
+        <h2 class="section-title">Featured products</h2>
+        <div class="grid-3" id="productGrid">
+            <!-- product cards (static demo) -->
+            <div class="product-card">
+                <img src="C:\Users\DELL\Pictures\Screenshots\broiler.png" alt="Organic chicken" loading="lazy" />
+                <div class="info">
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="title">Broiler chicken</div>
+                    <div class="price">₦5000 per kg</div>
+                    <button class="btn add-to-cart" style="padding:8px 20px;font-size:0.9rem;margin-top:10px;"><i class="fas fa-cart-plus"></i> Add</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="C:\Users\DELL\Pictures\Screenshots\eggs.png" alt="Eggs" loading="lazy" />
+                <div class="info">
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="title">Fresh eggs (dozen)</div>
+                    <div class="price">₦5000</div>
+                    <button class="btn add-to-cart" style="padding:8px 20px;font-size:0.9rem;margin-top:10px;"><i class="fas fa-cart-plus"></i> Add</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="C:\Users\DELL\Pictures\Screenshots\turkey.png" alt="Turkey" loading="lazy" />
+                <div class="info">
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <div class="title">Turkey</div>
+                    <div class="price">₦5700 per kg</div>
+                    <button class="btn add-to-cart" style="padding:8px 20px;font-size:0.9rem;margin-top:10px;"><i class="fas fa-cart-plus"></i> Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROMO BANNER -->
+    <div class="container promo-banner">
+        <div><h3>🎉 Easter special: 15% off all poultry</h3><p>Use code <strong>HUB15</strong> at checkout</p></div>
+        <a href="#" class="btn btn-dark">Shop now</a>
+    </div>
+
+    <!-- WHY CHOOSE US -->
+    <div class="container">
+        <h2 class="section-title">Why PoultryHub</h2>
+        <div class="grid-3" style="margin-bottom:40px;">
+            <div class="card"><i class="fas fa-leaf" style="color:var(--ph-primary);font-size:2.4rem;"></i><h4>100% natural</h4><p>No antibiotics, no hormones — just clean protein.</p></div>
+            <div class="card"><i class="fas fa-truck" style="color:var(--ph-primary);font-size:2.4rem;"></i><h4>Farm-to-table</h4><p>Delivered fresh within 24 hours of processing.</p></div>
+            <div class="card"><i class="fas fa-hand-holding-heart" style="color:var(--ph-primary);font-size:2.4rem;"></i><h4>Ethical farming</h4><p>We partner with certified humane farms.</p></div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="container">
+        <h2 class="section-title">What our customers say</h2>
+        <div class="testimonial-slider" id="testimonialSlider">
+            <div class="testimonial-card"><i class="fas fa-quote-left"></i><p style="margin:10px 0;">“The best chicken I've ever tasted. Truly free-range and full of flavour.”</p><strong>— Grace O.</strong></div>
+            <div class="testimonial-card"><i class="fas fa-quote-left"></i><p style="margin:10px 0;">“Eggs are so fresh, you can taste the difference. Delivery is always on time.”</p><strong>— Michael K.</strong></div>
+            <div class="testimonial-card"><i class="fas fa-quote-left"></i><p style="margin:10px 0;">“PoultryHub makes sustainable eating easy. My family loves it.”</p><strong>— Amina D.</strong></div>
+            <div class="testimonial-card"><i class="fas fa-quote-left"></i><p style="margin:10px 0;">“Excellent customer support and premium quality. Highly recommend.”</p><strong>— James R.</strong></div>
+        </div>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="container newsletter">
+        <h2>Fresh deals, straight to your inbox</h2>
+        <p style="opacity:0.9;margin-bottom:20px;">Subscribe and get 10% off your first order</p>
+        <div><input type="email" placeholder="Your email address" id="newsletterEmail" /><button class="btn btn-accent" id="newsletterBtn">Subscribe</button></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><h4>PoultryHub</h4><p style="margin-top:6px;">Premium poultry, farm-fresh.</p></div>
+                <div><h4>Quick links</h4><ul style="list-style:none;line-height:2;"><li><a href="#">Shop</a></li><li><a href="#">About</a></li><li><a href="#">Contact</a></li></ul></div>
+                <div><h4>Support</h4><ul style="list-style:none;line-height:2;"><li><a href="#">FAQs</a></li><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li></ul></div>
+                <div><h4>Follow us</h4><div style="display:flex;gap:16px;font-size:1.6rem;margin-top:8px;"><i class="fab fa-instagram"></i><i class="fab fa-facebook"></i><i class="fab fa-twitter"></i></div></div>
+            </div>
+            <div class="footer-bottom">© 2026 PoultryHub. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- External JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>
