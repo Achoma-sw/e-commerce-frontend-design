@@ -1,4 +1,4 @@
-// ===== js/app.js =====
+// ===== app.js =====
 (function() {
     'use strict';
 
