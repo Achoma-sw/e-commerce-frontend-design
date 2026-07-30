@@ -11,24 +11,70 @@
     <!-- Font Awesome (icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- External CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
     <!-- TOAST -->
     <div id="toast" class="toast">✨ Added to cart</div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2>Welcome Back</h2>
+            <p>Sign in to your PoultryHub account</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required />
+                </div>
+                <button type="submit" class="btn btn-accent" style="width:100%;">Sign In</button>
+                <p style="margin-top:12px;text-align:center;font-size:0.9rem;">Don't have an account? <a href="#" id="showRegister" style="color:var(--ph-primary);font-weight:600;">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- REGISTER MODAL -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeRegisterModal">&times;</button>
+            <h2>Create Account</h2>
+            <p>Join PoultryHub today</p>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" placeholder="John Doe" required />
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" placeholder="Create a password" required />
+                </div>
+                <button type="submit" class="btn btn-accent" style="width:100%;">Create Account</button>
+                <p style="margin-top:12px;text-align:center;font-size:0.9rem;">Already have an account? <a href="#" id="showLogin" style="color:var(--ph-primary);font-weight:600;">Sign in</a></p>
+            </form>
+        </div>
+    </div>
 
     <!-- STICKY NAV -->
     <nav class="navbar" id="navbar">
         <div class="container nav-flex">
             <div class="logo">Poultry<span>Hub</span></div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> Cart</a></li>
-                <li><a href="#"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="#" data-section="home">Home</a></li>
+                <li><a href="#" data-section="shop">Shop</a></li>
+                <li><a href="#" data-section="blog">Blog</a></li>
+                <li><a href="#" data-section="about">About</a></li>
+                <li><a href="#" data-section="contact">Contact</a></li>
+                <li><a href="#" id="cartLink"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount" style="background:var(--ph-accent);color:#212121;border-radius:50%;padding:2px 8px;font-size:0.7rem;margin-left:4px;">0</span></a></li>
+                <li><a href="#" id="loginLink"><i class="fas fa-user"></i> Login</a></li>
             </ul>
             <div class="flex-center">
                 <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
@@ -37,57 +83,56 @@
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
         <div class="container">
             <h1>Fresh from the farm <br />to your table.</h1>
             <p>Premium poultry, eggs, and farm-fresh produce — sustainably raised and delivered.</p>
-            <a href="#" class="btn btn-accent">Explore shop <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="btn btn-accent" id="exploreBtn">Explore shop <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
-    <!-- CATEGORIES -->
-    <div class="container">
+    <!-- CATEGORIES / SHOP SECTION -->
+    <div class="container" id="shop">
         <h2 class="section-title">Shop by category</h2>
         <div class="category-grid">
             <div class="category-card"><i class="fas fa-drumstick-bite"></i><h4>Chicken</h4></div>
+            <div class="category-card"><span style="font-size:2.6rem;">🦃</span><h4>Turkey</h4></div>
             <div class="category-card"><i class="fas fa-egg"></i><h4>Eggs</h4></div>
-            <div class="category-card"><i class="fas fa-turkey"></i><h4>Turkey</h4></div>
             <div class="category-card"><i class="fas fa-seedling"></i><h4>Feed</h4></div>
             <div class="category-card"><i class="fas fa-tractor"></i><h4>Supplies</h4></div>
         </div>
     </div>
 
     <!-- FEATURED PRODUCTS -->
-    <div class="container">
+    <div class="container" id="featured-products">
         <h2 class="section-title">Featured products</h2>
         <div class="grid-3" id="productGrid">
-            <!-- product cards (static demo) -->
-            <div class="product-card">
-                <img src="C:\Users\DELL\Pictures\Screenshots\broiler.png" alt="Organic chicken" loading="lazy" />
+            <div class="product-card" data-id="1">
+                <img src="C:\Users\DELL\Pictures\Screenshots\broiler.png" alt="Broiler chicken" loading="lazy" />
                 <div class="info">
                     <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
                     <div class="title">Broiler chicken</div>
                     <div class="price">₦5000 per kg</div>
-                    <button class="btn add-to-cart" style="padding:8px 20px;font-size:0.9rem;margin-top:10px;"><i class="fas fa-cart-plus"></i> Add</button>
+                    <button class="btn add-to-cart" data-name="Broiler chicken" data-price="5000"><i class="fas fa-cart-plus"></i> Add</button>
                 </div>
             </div>
-            <div class="product-card">
-                <img src="C:\Users\DELL\Pictures\Screenshots\eggs.png" alt="Eggs" loading="lazy" />
+            <div class="product-card" data-id="2">
+                <img src="C:\Users\DELL\Pictures\Screenshots\eggs.png" alt="Fresh eggs" loading="lazy" />
                 <div class="info">
                     <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <div class="title">Fresh eggs (dozen)</div>
                     <div class="price">₦5000</div>
-                    <button class="btn add-to-cart" style="padding:8px 20px;font-size:0.9rem;margin-top:10px;"><i class="fas fa-cart-plus"></i> Add</button>
+                    <button class="btn add-to-cart" data-name="Fresh eggs" data-price="5000"><i class="fas fa-cart-plus"></i> Add</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="3">
                 <img src="C:\Users\DELL\Pictures\Screenshots\turkey.png" alt="Turkey" loading="lazy" />
                 <div class="info">
                     <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
                     <div class="title">Turkey</div>
                     <div class="price">₦5700 per kg</div>
-                    <button class="btn add-to-cart" style="padding:8px 20px;font-size:0.9rem;margin-top:10px;"><i class="fas fa-cart-plus"></i> Add</button>
+                    <button class="btn add-to-cart" data-name="Turkey" data-price="5700"><i class="fas fa-cart-plus"></i> Add</button>
                 </div>
             </div>
         </div>
@@ -99,8 +144,8 @@
         <a href="#" class="btn btn-dark">Shop now</a>
     </div>
 
-    <!-- WHY CHOOSE US -->
-    <div class="container">
+    <!-- WHY CHOOSE US / ABOUT SECTION -->
+    <div class="container" id="about">
         <h2 class="section-title">Why PoultryHub</h2>
         <div class="grid-3" style="margin-bottom:40px;">
             <div class="card"><i class="fas fa-leaf" style="color:var(--ph-primary);font-size:2.4rem;"></i><h4>100% natural</h4><p>No antibiotics, no hormones — just clean protein.</p></div>
@@ -109,8 +154,8 @@
         </div>
     </div>
 
-    <!-- TESTIMONIALS -->
-    <div class="container">
+    <!-- TESTIMONIALS / BLOG SECTION -->
+    <div class="container" id="blog">
         <h2 class="section-title">What our customers say</h2>
         <div class="testimonial-slider" id="testimonialSlider">
             <div class="testimonial-card"><i class="fas fa-quote-left"></i><p style="margin:10px 0;">“The best chicken I've ever tasted. Truly free-range and full of flavour.”</p><strong>— Grace O.</strong></div>
@@ -120,11 +165,32 @@
         </div>
     </div>
 
-    <!-- NEWSLETTER -->
-    <div class="container newsletter">
+    <!-- NEWSLETTER / CONTACT SECTION -->
+    <div class="container newsletter" id="contact">
         <h2>Fresh deals, straight to your inbox</h2>
         <p style="opacity:0.9;margin-bottom:20px;">Subscribe and get 10% off your first order</p>
         <div><input type="email" placeholder="Your email address" id="newsletterEmail" /><button class="btn btn-accent" id="newsletterBtn">Subscribe</button></div>
+    </div>
+
+    <!-- CART SECTION -->
+    <div class="container" id="cartSection" style="display:none;">
+        <h2 class="section-title">Your Shopping Cart</h2>
+        <div class="cart-container">
+            <div id="cartItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart" style="font-size:4rem;color:var(--ph-light-gray);"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Start shopping to add items to your cart</p>
+                    <button class="btn" id="continueShopping">Continue Shopping</button>
+                </div>
+            </div>
+            <div class="cart-summary" id="cartSummary" style="display:none;">
+                <h3>Order Summary</h3>
+                <div id="cartTotal"></div>
+                <button class="btn btn-accent" style="width:100%;margin-top:16px;">Proceed to Checkout</button>
+                <button class="btn btn-outline" style="width:100%;margin-top:8px;" id="continueShopping2">Continue Shopping</button>
+            </div>
+        </div>
     </div>
 
     <!-- FOOTER -->
@@ -132,7 +198,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div><h4>PoultryHub</h4><p style="margin-top:6px;">Premium poultry, farm-fresh.</p></div>
-                <div><h4>Quick links</h4><ul style="list-style:none;line-height:2;"><li><a href="#">Shop</a></li><li><a href="#">About</a></li><li><a href="#">Contact</a></li></ul></div>
+                <div><h4>Quick links</h4><ul style="list-style:none;line-height:2;"><li><a href="#" data-section="home">Home</a></li><li><a href="#" data-section="shop">Shop</a></li><li><a href="#" data-section="blog">Blog</a></li><li><a href="#" data-section="about">About</a></li><li><a href="#" data-section="contact">Contact</a></li></ul></div>
                 <div><h4>Support</h4><ul style="list-style:none;line-height:2;"><li><a href="#">FAQs</a></li><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li></ul></div>
                 <div><h4>Follow us</h4><div style="display:flex;gap:16px;font-size:1.6rem;margin-top:8px;"><i class="fab fa-instagram"></i><i class="fab fa-facebook"></i><i class="fab fa-twitter"></i></div></div>
             </div>
@@ -144,6 +210,6 @@
     <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <!-- External JavaScript -->
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
